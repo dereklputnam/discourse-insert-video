@@ -3,9 +3,10 @@ default_track_label:
 default_track_langcode:
   default: "en"
 allowed_groups:
-  type: group_list
+  type: list
   default: ""
-  description: "Only users in these groups can use the insert video button. Leave empty to allow all users."
+  list_type: compact
+  description: "Only users in these groups can use the insert video button. Enter group names separated by pipe (|). Leave empty to allow all users."
 disable_download:
   type: bool
   default: false
