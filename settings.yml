@@ -2,9 +2,10 @@ default_track_label:
   default: "English"
 default_track_langcode:
   default: "en"
-only_available_to_staff:
-  type: bool
-  default: false
+allowed_groups:
+  type: group_list
+  default: ""
+  description: "Only users in these groups can use the insert video button. Leave empty to allow all users."
 disable_download:
   type: bool
   default: false

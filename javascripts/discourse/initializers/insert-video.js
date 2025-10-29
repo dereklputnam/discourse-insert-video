@@ -8,8 +8,16 @@ export default {
       api.onToolbarCreate((toolbar) => {
         let currentUser = api.getCurrentUser();
 
-        if (settings.only_available_to_staff && !currentUser.staff) {
-          return;
+        if (settings.allowed_groups && settings.allowed_groups.length > 0) {
+          const allowedGroups = settings.allowed_groups.split("|");
+          const userGroups = currentUser.groups.map((g) => g.name);
+          const hasAccess = allowedGroups.some((group) =>
+            userGroups.includes(group)
+          );
+
+          if (!hasAccess) {
+            return;
+          }
         }
 
         toolbar.addButton({
